@@ -1,88 +1,122 @@
+# Supermarket CRUD
 
-# Supermarket CRUD - Frontend
+## Descrição
 
-Este é o frontend para um aplicativo de CRUD de supermercado desenvolvido com Vue.js. Ele permite que os usuários visualizem, criem, editem e excluam produtos de um supermercado.
+Este projeto é uma aplicação de CRUD (Create, Read, Update, Delete) para gerenciamento de produtos de supermercado. O projeto foi desenvolvido como parte de um desafio técnico para uma vaga de desenvolvedor Full Stack, utilizando Laravel para o backend e Vue.js para o frontend.
 
-## Visão Geral
+## Funcionalidades
 
-Este projeto consiste em um aplicativo web de gerenciamento de produtos de supermercado. Ele oferece uma interface intuitiva para que os funcionários possam manipular os produtos do inventário do supermercado.
-
-## Funcionalidades Principais
-
-- **Lista de Produtos:** Visualize todos os produtos cadastrados.
-- **Criar Produto:** Adicione um novo produto ao inventário.
-- **Editar Produto:** Atualize as informações de um produto existente.
-- **Excluir Produto:** Remova um produto do inventário.
-
-## Iniciando
-
-Siga as instruções abaixo para configurar e iniciar o frontend em seu ambiente local.
-
-### Pré-requisitos
-
-- Node.js: Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo em [nodejs.org](https://nodejs.org/).
-
-### Instalação
-
-1. Clone este repositório:
-
-```
-git clone https://github.com/seu-usuario/supermarket-crud-frontend.git
-```
-
-2. Navegue até o diretório do projeto:
-
-```
-cd supermarket-crud-frontend
-```
-
-3. Instale as dependências do projeto:
-
-```
-npm install
-```
-
-### Configuração
-
-Antes de iniciar o servidor, você precisará configurar a URL da API. Abra o arquivo `src/services/api.js` e atualize a constante `BASE_URL` com a URL correta da API.
-
-```javascript
-const BASE_URL = 'http://localhost:8000/api'; // Atualize esta URL com a URL da sua API
-```
-
-### Inicialização
-
-Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
-
-```
-npm run serve
-```
-
-Isso iniciará o servidor de desenvolvimento e você poderá acessar o aplicativo em `http://localhost:8080`.
-
-### Credenciais de Login
-
-Ao acessar a página de login, utilize as seguintes credenciais:
-
-- **Usuário:** admin
-- **Senha:** admin
-
-Lembre-se de que essas são credenciais de exemplo e devem ser substituídas em um ambiente de produção.
+- **Autenticação de Usuários**: Apenas usuários autenticados podem acessar as funcionalidades de CRUD.
+- **Gerenciamento de Produtos**:
+  - Adicionar novo produto
+  - Listar produtos
+  - Atualizar produto
+  - Excluir produto
+- **Atributos do Produto**:
+  - Nome
+  - Preço
+  - Tipo
+  - Quantidade
+  - Foto
 
 ## Tecnologias Utilizadas
 
-- Vue.js
-- Vue Router
-- Axios
+- **Backend**: Laravel
+- **Frontend**: Vue.js
+- **Banco de Dados**: MySQL
+- **Autenticação**: Laravel Passport
 
-## Contribuindo
+## Requisitos
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um pull request ou abrir uma issue para relatar problemas ou sugestões.
+- XAMPP (ou outra stack PHP similar)
+- Composer
+- Node.js e npm
 
-## Licença
+## Configuração do Ambiente
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+### Backend (Laravel)
 
+1. **Instale o XAMPP**: Certifique-se de que o XAMPP está instalado e em execução com os serviços Apache e MySQL ativados.
+2. **Clone o Repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/supermarket-crud.git
+   cd supermarket-crud
+   ```
+3. **Instale as Dependências do Laravel**:
+   ```bash
+   composer install
+   ```
+4. **Configure o Banco de Dados**:
+   - Crie um banco de dados MySQL chamado `supermarket`.
+   - Configure as informações de conexão no arquivo `.env`:
+     ```dotenv
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=supermarket
+     DB_USERNAME=root
+     DB_PASSWORD=sua_senha
+     ```
+5. **Execute as Migrações**:
+   ```bash
+   php artisan migrate
+   ```
+6. **Instale o Laravel Passport**:
+   ```bash
+   php artisan passport:install
+   ```
+7. **Inicie o Servidor Laravel**:
+   ```bash
+   php artisan serve
+   ```
+
+### Frontend (Vue.js)
+
+1. **Navegue até o Diretório do Frontend**:
+   ```bash
+   cd supermarket-frontend
+   ```
+2. **Instale as Dependências do Vue.js**:
+   ```bash
+   npm install
+   ```
+3. **Inicie o Servidor de Desenvolvimento do Vue.js**:
+   ```bash
+   npm run serve
+   ```
+
+## Uso
+
+1. **Registro e Login de Usuário**:
+   - Acesse `http://localhost:8080/login` e registre um novo usuário ou faça login com um usuário existente.
+
+2. **Gerenciamento de Produtos**:
+   - Após o login, você pode criar, visualizar, atualizar e excluir produtos através da interface da aplicação.
+
+## Estrutura do Projeto
+
+### Backend (Laravel)
+
+- `app/Models/Product.php`: Modelo do Produto.
+- `app/Http/Controllers/ProductController.php`: Controlador RESTful para gerenciamento dos produtos.
+- `routes/api.php`: Definição das rotas de API.
+
+### Frontend (Vue.js)
+
+- `src/components/ProductList.vue`: Componente para listar os produtos.
+- `src/components/ProductCreate.vue`: Componente para adicionar novos produtos.
+- `src/components/ProductEdit.vue`: Componente para editar produtos existentes.
+- `src/components/Login.vue`: Componente para login de usuário.
+- `src/router/index.js`: Configuração das rotas do Vue Router.
+
+## Contato
+
+- **Nome**: Reinald Mendes
+- **Email**: Reinald_30_2009@hotmail.com
+- **LinkedIn**: [Seu Perfil](https://www.linkedin.com/in/reinald-mendes-b712b9182/)
+
+---
+
+Este projeto foi desenvolvido como parte de um desafio técnico. Qualquer feedback ou sugestão é bem-vinda!
 ```
 
-Este README.md fornece uma visão geral do projeto, instruções claras para iniciar o frontend em um ambiente local e informações sobre as credenciais de login. Certifique-se de adaptar as URLs e outras informações conforme necessário para o seu projeto específico.
