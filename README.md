@@ -1,6 +1,4 @@
-Claro, aqui está um exemplo de README.md que você pode compartilhar com a empresa:
 
-```markdown
 # Supermarket CRUD - Frontend
 
 Este é o frontend para um aplicativo de CRUD de supermercado desenvolvido com Vue.js. Ele permite que os usuários visualizem, criem, editem e excluam produtos de um supermercado.
